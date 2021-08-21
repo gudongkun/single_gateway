@@ -1,0 +1,10 @@
+{
+  "app": "gateway_dev",
+  "appAddr": "8086",
+  "service": {
+    "uCenter": "single_u_center_dev"
+  },
+  "dsn":"root:123456@(localhost:3306)/single?charset=utf8mb4",
+  "consul":"root:123456@(localhost:3306)/single?charset=utf8mb4",
+  "jaeger":"127.0.0.1:6831"
+}
