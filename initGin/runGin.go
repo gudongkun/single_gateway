@@ -1,4 +1,4 @@
-package globalgin
+package initGin
 
 import (
 	"github.com/gin-gonic/gin"

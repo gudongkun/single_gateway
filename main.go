@@ -5,7 +5,7 @@ import (
 	"github.com/gudongkun/single_common/jaeger"
 	"github.com/gudongkun/single_ucenter/enlight_ucenter_client"
 	"single_gateway/global"
-	"single_gateway/globalgin"
+	 "single_gateway/initGin"
 )
 
 func main() {
@@ -19,7 +19,6 @@ func main() {
 	//初始化 go micro 客户端
 	enlight_ucenter_client.InitClient(global.Conf.Service.UCenter)
 	//初始化http
-	globalgin.RunGin()
-
+	initGin.RunGin()
 
 }
