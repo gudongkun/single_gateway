@@ -1,8 +1,9 @@
-package global
+package globalgin
 
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/prometheus/common/log"
+	"single_gateway/global"
 	"single_gateway/middlewares"
 	"single_gateway/router"
 )
@@ -27,9 +28,9 @@ func GetRouter() *gin.Engine {
 }
 
 func RunGin()  {
-	router :=GetRouter()
+	router := GetRouter()
 	router.Run()
-	if err := router.Run(Conf.AppAddr); err != nil {
+	if err := router.Run(global.Conf.AppAddr); err != nil {
 		log.Error("http Service Start Error", err)
 	}
 }

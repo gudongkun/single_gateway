@@ -9,8 +9,10 @@ type Config struct {
 	AppAddr     string  `json:"appAddr"`
 	Consul  string  `json:"consul"`
 	Dsn     string  `json:"dsn"`
+	CasbinDsn     string  `json:"casbinDsn"`
 	Service Service `json:"service"`
 	Jaeger  string  `json:"jaeger"`
+	JwtSecret  string  `json:"jwtSecret"`
 }
 
 type Service struct {

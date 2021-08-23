@@ -29,7 +29,7 @@ func AutoJaeger() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		// 初始化span
 		rootCtx, rootSpan, _ := wrapperTrace.StartSpanFromContext(
-			c,
+			c.Request.Context(),
 			opentracing.GlobalTracer(),
 			c.Request.Method+":"+c.FullPath(),
 		)
@@ -38,7 +38,9 @@ func AutoJaeger() gin.HandlerFunc {
 		c.Set("rootCtx", rootCtx)
 		body, _ := ioutil.ReadAll(c.Request.Body)
 
+
 		blw := &CustomResponseWriter{body: bytes.NewBufferString(""), ResponseWriter: c.Writer}
+		c.Request = c.Request.WithContext(rootCtx)
 		c.Writer = blw
 
 		c.Next()
